@@ -36,10 +36,10 @@ def features(X):
 
 # 4.2 Metodo de Aprendizagem (2 valores)
 def mytraining(f,Y):
-    clf = NearestNeighbors(n_neighbors=100, algorithm='auto')
+    clf = neighbors.KNeighborsClassifier(n_neighbors=100, algorithm='auto')
     clf = clf.fit(f, Y)
    
-    #return clf
+    return clf
     
 #def mytrainingaux(f,Y,par):
 #	clf = #implementar
