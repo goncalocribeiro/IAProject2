@@ -7,14 +7,12 @@ import classsol
 
 #load input data
 words = []
-with open("words.txt") as file:
+with open("words.txt", encoding='latin-1') as file:
     for line in file: 
         line = line.split(' ') #or some other preprocessing
         words.append(line) #storing everything in memory!
 
 X = words[0]
-
-print(X)
 
 for test in ["wordsclass.npy", "wordsclass2.npy"]:
     print("Testing " + test)
