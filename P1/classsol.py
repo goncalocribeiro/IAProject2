@@ -6,6 +6,10 @@ import timeit
 
 from sklearn.model_selection import cross_val_score
 
+from copy import deepcopy
+
+NEIGHBORS = 0 #numero de palavras
+
 # 4.1 Escolha de Features (1 valor)
 # numero de vogais
 vogais = ('a','e','i','o','u')
@@ -23,6 +27,8 @@ def tem_acentuacao(p):
 	return all(ord(c) < 128 for c in p)
 
 def features(X):
+    global NEIGHBORS
+    NEIGHBORS = len(X)
     
     F = np.zeros((len(X),5))
     for x in range(0,len(X)):
@@ -36,9 +42,8 @@ def features(X):
 
 # 4.2 Metodo de Aprendizagem (2 valores)
 def mytraining(f,Y):
-    clf = neighbors.KNeighborsClassifier(n_neighbors=100, algorithm='auto')
+    clf = neighbors.KNeighborsClassifier(n_neighbors=NEIGHBORS, algorithm='auto')
     clf = clf.fit(f, Y)
-   
     return clf
     
 #def mytrainingaux(f,Y,par):
