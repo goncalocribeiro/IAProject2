@@ -6,9 +6,9 @@ import timeit
 
 from sklearn.model_selection import cross_val_score
 
-from copy import deepcopy
+#from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
-NEIGHBORS = 0 #numero de palavras
+#NEIGHBORS = 0 #numero de palavras
 
 # 4.1 Escolha de Features (1 valor)
 # numero de vogais
@@ -27,8 +27,10 @@ def tem_acentuacao(p):
 	return all(ord(c) < 128 for c in p)
 
 def features(X):
-    global NEIGHBORS
-    NEIGHBORS = len(X)
+    #global NEIGHBORS
+    #NEIGHBORS = len(X)
+    
+    #print(X)
     
     F = np.zeros((len(X),5))
     for x in range(0,len(X)):
@@ -42,15 +44,17 @@ def features(X):
 
 # 4.2 Metodo de Aprendizagem (2 valores)
 def mytraining(f,Y):
-    clf = neighbors.KNeighborsClassifier(n_neighbors=NEIGHBORS, algorithm='auto')
+    #clf = neighbors.KNeighborsClassifier(n_neighbors=NEIGHBORS, algorithm='auto') #74%, 77%
+    clf = tree.DecisionTreeClassifier() #83%, 83%
+    #clf = LinearDiscriminantAnalysis(solver='lsqr', shrinkage='auto') #73%, 79%
     clf = clf.fit(f, Y)
     return clf
     
-#def mytrainingaux(f,Y,par):
-#	clf = #implementar
- #   clf = clf.fit(f, Y)
+'''def mytrainingaux(f,Y,par):
+    clf = #implementar
+    clf = clf.fit(f, Y)
     
-  #  return clf
+    return clf'''
 
 def myprediction(f, clf):
     Ypred = clf.predict(f) # os metodos no scikit learn tem todos uma funcao predict

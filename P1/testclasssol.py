@@ -29,5 +29,6 @@ for test in ["wordsclass.npy", "wordsclass2.npy"]:
         print("Erro bastante baixo. PERFECT!\n")
     elif (np.sum(Y^Ypred)/len(X))<.3:    
         print("Erro nos Q dentro dos limites de tolerância. OK\n")
+        #print(1 - (np.sum(Y^Ypred)/len(X)))
     else:
         print("Erro nos Q acima dos limites de tolerância. FAILED\n")
