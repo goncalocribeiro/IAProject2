@@ -14,6 +14,8 @@ with open("words.txt") as file:
 
 X = words[0]
 
+print(X)
+
 for test in ["wordsclass.npy", "wordsclass2.npy"]:
     print("Testing " + test)
     #load output data
