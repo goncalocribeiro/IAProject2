@@ -54,7 +54,7 @@ def features(X):
 # 4.2 Metodo de Aprendizagem (2 valores)
 def mytraining(f,Y):
     #clf = neighbors.KNeighborsClassifier(n_neighbors=NEIGHBORS, algorithm='auto') #teste1: 74%, teste2: 77%
-    clf = tree.DecisionTreeClassifier() #teste1: 84%, teste2: 84%
+    clf = tree.DecisionTreeClassifier() #teste1: 84%, teste2: 84% <---------- MELHOR ESCOLHA
     #clf = LinearDiscriminantAnalysis(solver='lsqr', shrinkage='auto') #teste1: 73%, teste2: 79%
     clf = clf.fit(f, Y)
     return clf
