@@ -47,7 +47,7 @@ def features(X):
         F[x,1] = n_vogais_par(X[x]) # numero de vogais e par
         F[x,2] = primeira_letra_vogal(X[x]) # primeira letra ser vogal
         F[x,3] = tem_acentuacao(X[x]) # ter acentuacao
-        F[x,4] = not tem_repetidas(X[x]) #tem letras repetidas
+        F[x,4] = tem_repetidas(X[x]) #tem letras repetidas
 
     return F   
 
