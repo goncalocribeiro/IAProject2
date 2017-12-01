@@ -26,6 +26,15 @@ def primeira_letra_vogal(p):
 def tem_acentuacao(p):
 	return all(ord(c) < 128 for c in p)
 
+def tem_repetidas(p):
+    seen = set()  # O(1) lookups
+    for x in p:
+        if x not in seen:
+            seen.add(x)
+        else:
+            return True
+    return False
+    
 def features(X):
     #global NEIGHBORS
     #NEIGHBORS = len(X)
@@ -38,15 +47,15 @@ def features(X):
         F[x,1] = n_vogais_par(X[x]) # numero de vogais e par
         F[x,2] = primeira_letra_vogal(X[x]) # primeira letra ser vogal
         F[x,3] = tem_acentuacao(X[x]) # ter acentuacao
-        #F[x,4] = # implementar ???
+        F[x,4] = not tem_repetidas(X[x]) #tem letras repetidas
 
     return F   
 
 # 4.2 Metodo de Aprendizagem (2 valores)
 def mytraining(f,Y):
-    #clf = neighbors.KNeighborsClassifier(n_neighbors=NEIGHBORS, algorithm='auto') #74%, 77%
-    clf = tree.DecisionTreeClassifier() #83%, 83%
-    #clf = LinearDiscriminantAnalysis(solver='lsqr', shrinkage='auto') #73%, 79%
+    #clf = neighbors.KNeighborsClassifier(n_neighbors=NEIGHBORS, algorithm='auto') #teste1: 74%, teste2: 77%
+    clf = tree.DecisionTreeClassifier() #teste1: 84%, teste2: 84%
+    #clf = LinearDiscriminantAnalysis(solver='lsqr', shrinkage='auto') #teste1: 73%, teste2: 79%
     clf = clf.fit(f, Y)
     return clf
     
