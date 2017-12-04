@@ -34,6 +34,20 @@ def tem_repetidas(p):
         else:
             return True
     return False
+
+'''def prefixo(p, X):    
+    t = len(p)
+    pref = ''
+    
+    if t == 4:
+        pref += p[t-3]
+        pref += p[t-2]
+        pref += p[t-1]
+        
+        return pref not in X
+
+    return False'''
+        
     
 def features(X):
     #global NEIGHBORS
@@ -41,13 +55,18 @@ def features(X):
     
     #print(X)
     
-    F = np.zeros((len(X),5))
+    F = np.zeros((len(X),6))
     for x in range(0,len(X)):
         F[x,0] = len(X[x]) # tamanho da palavra x em X
         F[x,1] = n_vogais_par(X[x]) # numero de vogais e par
         F[x,2] = primeira_letra_vogal(X[x]) # primeira letra ser vogal
         F[x,3] = tem_acentuacao(X[x]) # ter acentuacao
         F[x,4] = tem_repetidas(X[x]) #tem letras repetidas
+        
+        #numero impar de letras FALSE
+        #comecar e acabar em vogal TRUE
+        #ultimas 3 serem palavra de 3
+        
 
     return F   
 
