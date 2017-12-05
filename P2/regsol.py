@@ -18,11 +18,11 @@ def mytraining(X,Y):
                   param_grid={"alpha": [1e0, 0.1, 1e-2, 1e-3],
                               "gamma": np.logspace(-2, 2, 5)})
     
-    t0 = time.time()
+    #t0 = time.time()
     
     reg.fit(X,Y)
     
-    reg_fit = time.time() - t0
+    '''reg_fit = time.time() - t0
     print("KRR complexity and bandwidth selected and model fitted in %.3f s"
           % reg_fit)  
     
@@ -31,7 +31,7 @@ def mytraining(X,Y):
     y_reg = reg.predict(X_plot)
     reg_predict = time.time() - t0
     print("KRR prediction for %d inputs in %.3f s"
-      % (X_plot.shape[0], reg_predict))
+      % (X_plot.shape[0], reg_predict))'''
    
     return reg
     
