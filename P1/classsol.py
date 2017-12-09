@@ -1,3 +1,5 @@
+#A030, Goncalo Ribeiro 82303, Andre Mendonca 82304
+
 import numpy as np
 from sklearn import neighbors, datasets, tree, linear_model
 
@@ -7,8 +9,6 @@ import timeit
 from sklearn.model_selection import cross_val_score
 
 #from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-
-#NEIGHBORS = 0 #numero de palavras
 
 # 4.1 Escolha de Features (1 valor)
 # numero de vogais
@@ -33,27 +33,9 @@ def tem_repetidas(p):
             seen.add(x)
         else:
             return True
-    return False
-
-'''def prefixo(p, X):    
-    t = len(p)
-    pref = ''
-    
-    if t == 4:
-        pref += p[t-3]
-        pref += p[t-2]
-        pref += p[t-1]
-        
-        return pref not in X
-
-    return False'''
-        
+    return False        
     
 def features(X):
-    #global NEIGHBORS
-    #NEIGHBORS = len(X)
-    
-    #print(X)
     
     F = np.zeros((len(X),6))
     for x in range(0,len(X)):

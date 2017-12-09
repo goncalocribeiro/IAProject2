@@ -1,3 +1,5 @@
+#A030, Goncalo Ribeiro 82303, Andre Mendonca 82304
+
 import numpy as np
 from sklearn import datasets, tree, linear_model
 from sklearn.kernel_ridge import KernelRidge
